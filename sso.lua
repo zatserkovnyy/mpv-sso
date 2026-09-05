@@ -1,3 +1,12 @@
+-- =======================================================
+-- Script: sso.lua
+-- Author: Boris Zatserkovnyy
+-- Version: 1.0.0
+-- GitHub: https://github.com/zatserkovnyy/mpv-sso
+-- =======================================================
+
+local SCRIPT_VERSION = "1.0.0"
+
 local custom_style = false
 
 function toggle_sub_style()
