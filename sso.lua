@@ -2,11 +2,9 @@
 -- Script: sso.lua
 -- Description: Toggle ASS/SSA Subtitle Style Override (SSO) for mpv
 -- Author: Boris Zatserkovnyy
--- Version: 1.0.0
+-- Version: 1.0.1
 -- GitHub: https://github.com/zatserkovnyy/mpv-sso
 -- =======================================================
-
-local custom_style = false
 
 function toggle_sub_style()
     local track_list = mp.get_property_native("track-list")
@@ -20,23 +18,21 @@ function toggle_sub_style()
     end
 
     if sub_format == "ass" or sub_format == "ssa" then
-        if not custom_style then
+        local current_override = mp.get_property("sub-ass-override")
+
+        if current_override ~= "force" then
             mp.set_property("sub-ass-override", "force")
             mp.set_property("sub-ass-force-style", "Bold=1,Fontsize=36")
             mp.set_property("sub-use-margins", "yes")
             mp.set_property("sub-pos", "98")
             mp.osd_message("ASS Override: on")
-            custom_style = true
         else
             mp.set_property("sub-ass-override", "no")
             mp.set_property("sub-ass-force-style", "")
-            mp.set_property("sub-use-margins", "yes")
-            mp.set_property("sub-pos", "98")
             mp.osd_message("ASS Override: off")
-            custom_style = false
         end
     else
-        mp.osd_message([[¯\(ツ)/¯]])
+        mp.osd_message([[¯\_(ツ)_/¯]])
     end
 end
 
