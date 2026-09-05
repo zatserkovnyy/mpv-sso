@@ -134,4 +134,5 @@ The script is minimal and requires no config files. All settings are edited dire
 ## Support
 
 If you find this script useful, you can support my work with a voluntary donation. I truly love coffee but honestly can't afford to buy it right now, so any support would genuinely buy my next cup! ❤️
-[**Support via DonationAlerts**](https://www.donationalerts.com/r/zatserkovnyy)
+
+[![DonationAlerts](https://img.shields.io/badge/Support-DonationAlerts-orange?style=for-the-badge&logo=coffee)](https://www.donationalerts.com/r/zatserkovnyy)
