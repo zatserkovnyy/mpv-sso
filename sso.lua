@@ -1,5 +1,6 @@
 -- =======================================================
 -- Script: sso.lua
+-- Description: Toggle ASS/SSA Subtitle Style Override (SSO) for mpv
 -- Author: Boris Zatserkovnyy
 -- Version: 1.0.0
 -- GitHub: https://github.com/zatserkovnyy/mpv-sso
