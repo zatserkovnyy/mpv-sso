@@ -17,17 +17,17 @@ A small **mpv** script that toggles forced subtitle styling (ASS Override) for A
     (other properties remain unchanged)
 - Shows an OSD message:  
   `ASS Override: on` / `ASS Override: off`
-- If the current subtitles are **not** ASS/SSA, it simply displays `¯\(ツ)/¯` and does nothing.
+- If the current subtitles are **not** ASS/SSA, it simply displays `¯\_(ツ)_/¯` and does nothing.
 
-The on/off state is stored in the `custom_style` variable and persists between presses.
+The script dynamically reads the actual `sub-ass-override` property directly from mpv to determine the current state, preventing any desynchronization.
 
 ## How it works
 
 1. Retrieves the full track list (`track-list`).
 2. Finds the currently selected subtitle track (`type == "sub"` and `selected`).
 3. Reads its codec (`track.codec`).
-4. If the codec is `ass` or `ssa`, it toggles the relevant mpv properties.
-5. Otherwise, it only shows the OSD message.
+4. If the codec is NOT `ass` or `ssa`, it aborts and shows a shrug OSD message.
+5. Otherwise, it reads the current override state and toggles the relevant mpv properties.
 
 The script uses the standard mpv Lua API (`mp.get_property_native`, `mp.set_property`, `mp.osd_message`, `mp.add_key_binding`).
 
@@ -40,15 +40,12 @@ The script uses the standard mpv Lua API (`mp.get_property_native`, `mp.set_prop
 
 ## Hotkey
 
-Default: **Page Down** (`PGDWN`).
+By default, the script binds to **Page Down** (`PGDWN`).
+To change the hotkey, do not edit the `.lua` file directly. Instead, add the following line to your `input.conf` file (located in `~/.config/mpv/` or `%APPDATA%\mpv\`):
 
-To change it, find this line at the end of the file:
+`k script-binding toggle-sub-style`
 
-```lua
-mp.add_key_binding("PGDWN", "toggle-sub-style", toggle_sub_style)
-```
-
-and replace `"PGDWN"` with the desired key (e.g. `"b"`, `"Ctrl+s"`, `"MOUSE_BTN3"`, etc.).
+*(Replace `k` with your desired key).*
 
 ## What you can easily change
 
@@ -103,7 +100,7 @@ You can customize the texts:
 ```lua
 mp.osd_message("ASS Override: on")
 mp.osd_message("ASS Override: off")
-mp.osd_message([[¯\(ツ)/¯]])
+mp.osd_message([[¯\_(ツ)_/¯]])
 ```
 
 ### 5. Behavior for non-ASS subtitles
