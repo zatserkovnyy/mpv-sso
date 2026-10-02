@@ -27,11 +27,11 @@ function toggle_sub_style()
 
     if is_override_active then
         mp.set_property("sub-ass-override", "no")
-        mp.set_property("sub-ass-force-style", "")
+        mp.set_property("sub-ass-style-overrides", "")
         mp.osd_message("ASS Override: off")
     else
         mp.set_property("sub-ass-override", "force")
-        mp.set_property("sub-ass-force-style", "Bold=1,Fontsize=36")
+        mp.set_property("sub-ass-style-overrides", "Bold=1,Fontsize=36")
         mp.set_property("sub-use-margins", "yes")
         mp.set_property("sub-pos", "98")
         mp.osd_message("ASS Override: on")
