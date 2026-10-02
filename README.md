@@ -8,12 +8,12 @@ A small **mpv** script that toggles forced subtitle styling (ASS Override) for A
 - If it is, pressing **Page Down** (`PGDWN`) toggles a forced style on/off:
   - **On**:  
     `sub-ass-override = force`  
-    `sub-ass-force-style = Bold=1,Fontsize=36`  
+    `sub-ass-style-overrides = Bold=1,Fontsize=36`  
     `sub-use-margins = yes`  
     `sub-pos = 98`
   - **Off**:  
     `sub-ass-override = no`  
-    `sub-ass-force-style = ""`  
+    `sub-ass-style-overrides = ""`  
     (other properties remain unchanged)
 - Shows an OSD message:  
   `ASS Override: on` / `ASS Override: off`
@@ -54,7 +54,7 @@ To change the hotkey, do not edit the `.lua` file directly. Instead, add the fol
 Find this line:
 
 ```lua
-mp.set_property("sub-ass-force-style", "Bold=1,Fontsize=36")
+mp.set_property("sub-ass-style-overrides", "Bold=1,Fontsize=36")
 ```
 
 You can set any ASS style properties, separated by commas, for example:
@@ -110,7 +110,7 @@ Currently it just shows a shrug. You can change the message or make it do nothin
 ## Example of a bolder style
 
 ```lua
-mp.set_property("sub-ass-force-style", "Bold=1,Fontsize=40,Outline=3,Shadow=2,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000")
+mp.set_property("sub-ass-style-overrides", "Bold=1,Fontsize=40,Outline=3,Shadow=2,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000")
 ```
 
 ## Requirements
