@@ -2,7 +2,7 @@
 -- Script: sso.lua
 -- Description: Toggle ASS/SSA Subtitle Style Override (SSO) for mpv
 -- Author: Boris Zatserkovnyy
--- Version: 1.0.3
+-- Version: 1.0.4
 -- GitHub: https://github.com/zatserkovnyy/mpv-sso
 -- =======================================================
 
@@ -15,7 +15,7 @@ local function get_active_sub_format()
     return nil
 end
 
-function toggle_sub_style()
+local function toggle_sub_style()
     local sub_format = get_active_sub_format()
 
     if sub_format ~= "ass" and sub_format ~= "ssa" then
